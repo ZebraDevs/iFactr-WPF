@@ -1,0 +1,1616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoCross.Navigation</name>
+    </assembly>
+    <members>
+        <member name="T:MonoCross.Navigation.MXViewMap">
+            <summary>
+            Represents a mapping of a model type and perspective to <see cref="T:MonoCross.Navigation.IMXView`1"/>s in a container.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.NamedTypeMap">
+            <summary>
+            Represents a mapping of abstract types to native class types to each platform that the abstract types represent.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.NamedTypeMap"/> class.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Add(System.Type,System.Type)">
+            <summary>
+            Adds an entry with the specified abstract type and class type to the collection.
+            </summary>
+            <param name="abstractType">The type of the abstract to associate with the class type.</param>
+            <param name="concreteType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Add(System.String,System.Type,System.Type)">
+            <summary>
+            Adds an entry with the specified abstract type and class type to the collection.
+            </summary>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="abstractType">The type of the abstract to associate with the class type.</param>
+            <param name="concreteType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Add(System.String,System.Type,MonoCross.Navigation.TypeLoader)">
+            <summary>
+            Adds an entry with the specified abstract type and class type to the collection.
+            </summary>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="abstractType">The type of the abstract to associate with the class type.</param>
+            <param name="typeLoader">The type loader to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.ContainsKey(System.Type)">
+            <summary>
+            Determines whether the collection contains an entry with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type to locate in the collection.</param>
+            <returns><c>true</c> if the abstract type was located in the collection; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.ContainsKey(System.Type,System.String)">
+            <summary>
+            Determines whether the collection contains an entry with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type to locate in the collection.</param>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <returns><c>true</c> if the abstract type was located in the collection; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Clear">
+            <summary>
+            Removes all custom entries from the collection.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Remove(System.Type)">
+            <summary>
+            Removes the entry with the specified abstract type from the collection.
+            </summary>
+            <param name="abstractType">The abstract type of the entry to remove.</param>
+            <returns><c>true</c> if the entry was successfully removed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Remove(System.Type,System.String)">
+            <summary>
+            Removes the entry with the specified abstract type from the collection.
+            </summary>
+            <param name="abstractType">The abstract type of the entry to remove.</param>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <returns><c>true</c> if the entry was successfully removed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetValue(System.Type,System.Type@)">
+            <summary>
+            Gets the class type associated with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type whose associated class type to get.</param>
+            <param name="classType">When the method returns, the class type associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetValue(System.String,System.Type@)">
+            <summary>
+            Gets the class type associated with the specified name.
+            </summary>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="classType">When the method returns, the class type associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetValue(System.Type,System.String,System.Type@)">
+            <summary>
+            Gets the class type associated with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type whose associated class type to get.</param>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="classType">When the method returns, the class type associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetInstance(System.Type,System.Object@)">
+            <summary>
+            Gets the instance associated with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type whose associated class type to get.</param>
+            <param name="instance">When the method returns, the instance associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetInstance(System.String,System.Object@)">
+            <summary>
+            Gets the instance associated with the specified name.
+            </summary>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="instance">When the method returns, the instance associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.TryGetInstance(System.Type,System.String,System.Object@)">
+            <summary>
+            Gets the instance associated with the specified abstract type.
+            </summary>
+            <param name="abstractType">The abstract type whose associated class type to get.</param>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <param name="instance">When the method returns, the instance associated with the specified abstract type, if the abstract type was found; otherwise, <c>null</c>."/></param>
+            <returns><c>true</c> if the class type was successfully retrieved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.CheckEntry(System.String@,System.Type,System.Type)">
+            <summary>
+            Performs type constraints on new entries.
+            </summary>
+            <param name="name">The entry name passed by reference so that it may be changed.</param>
+            <param name="key">The key <see cref="T:System.Type"/>.</param>
+            <param name="value">the value <see cref="T:System.Type"/>.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])">
+            <summary>
+            Resolves the specified abstract type as a concrete instance.
+            </summary>
+            <param name="type">The abstract type to resolve.</param>
+            <param name="name">An optional unique identifier for the abstract type.</param>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+            <exception cref="T:System.TypeLoadException">Thrown if the type cannot be found in the map.</exception>
+            <returns>The object instance.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Type)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="mappedType">The type of the class to associate with the key type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Type,System.String)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="mappedType">The type of the class to associate with the key type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Type,System.String,System.Func{System.Object},System.Boolean)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+            <param name="nativeType">The type of the class to associate with the key type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+            <param name="singletonInstance"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Type,System.String,System.Func{System.Object[],System.Object},System.Boolean)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+            <param name="nativeType">The type of the class to associate with the key type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+            <param name="singletonInstance"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Object)">
+            <summary>
+            Registers the specified key type and object for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="mappedObject">The type of the class to associate with the key type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.Register(System.Type,System.Object,System.String)">
+            <summary>
+            Registers the specified key type and object for <see cref="M:MonoCross.Navigation.NamedTypeMap.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="mappedObject">The type of the class to associate with the key type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.NamedTypeMap.Items">
+            <summary>
+            The map from a named type to a type loader.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.NamedTypeMap.Count">
+            <summary>
+            Gets the number of entries contained in the collection.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.NamedTypeMap.Item(System.Type)">
+            <summary>
+            Gets or sets the class type associated with the specified interface type.
+            </summary>
+            <param name="abstractType">The interface type associated with the class type to get or set.</param>
+            <returns>The class type associated with the <paramref name="abstractType"/>.</returns>
+        </member>
+        <member name="P:MonoCross.Navigation.NamedTypeMap.Item(System.Type,System.String)">
+            <summary>
+            Gets or sets the class type associated with the specified interface type.
+            </summary>
+            <param name="abstractType">The interface type associated with the class type to get or set.</param>
+            <param name="name">A unique identifier for the abstract type.</param>
+            <returns>The class type associated with the <paramref name="abstractType"/>.</returns>
+        </member>
+        <member name="T:MonoCross.Navigation.NamedTypeMap.NamedType">
+            <summary>
+            A key containing a type and optional name.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.#ctor(System.Type)">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> instance.
+            </summary>
+            <param name="type">The mapped <see cref="F:MonoCross.Navigation.NamedTypeMap.NamedType.Type"/>.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.#ctor(System.Type,System.String)">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> instance.
+            </summary>
+            <param name="type">The mapped <see cref="F:MonoCross.Navigation.NamedTypeMap.NamedType.Type"/>.</param>
+            <param name="id">An optional name describing the type.</param>
+        </member>
+        <member name="F:MonoCross.Navigation.NamedTypeMap.NamedType.Type">
+            <summary>
+            The type for this instance. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.NamedTypeMap.NamedType.Id">
+            <summary>
+            An optional identifier. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>. </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>A value that indicates the relative order of the objects being compared. The return value has these meanings: Value Meaning Less than zero This instance precedes <paramref name="obj" /> in the sort order. Zero This instance occurs in the same position in the sort order as <paramref name="obj" />. Greater than zero This instance follows <paramref name="obj" /> in the sort order.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.Equals(MonoCross.Navigation.NamedTypeMap.NamedType,MonoCross.Navigation.NamedTypeMap.NamedType)">
+            <summary>
+            Determines whether the specified objects are equal.
+            </summary>
+            <param name="x">The first object of type <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to compare.</param>
+            <param name="y">The second object of type <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to compare.</param>
+            <returns>
+            true if the specified objects are equal; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.GetHashCode(MonoCross.Navigation.NamedTypeMap.NamedType)">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.op_Equality(MonoCross.Navigation.NamedTypeMap.NamedType,MonoCross.Navigation.NamedTypeMap.NamedType)">
+            <summary>
+            Checks the specified NamedTypes for equality.
+            </summary>
+            <param name="a">The first <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to check.</param>
+            <param name="b">The second <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to check.</param>
+            <returns><c>true</c> if the parameters are equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NamedTypeMap.NamedType.op_Inequality(MonoCross.Navigation.NamedTypeMap.NamedType,MonoCross.Navigation.NamedTypeMap.NamedType)">
+            <summary>
+            Checks the specified NamedTypes for inequality.
+            </summary>
+            <param name="a">The first <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to check.</param>
+            <param name="b">The second <see cref="T:MonoCross.Navigation.NamedTypeMap.NamedType"/> to check.</param>
+            <returns><c>true</c> if the parameters are not equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.CheckEntry(System.String@,System.Type,System.Type)">
+            <summary>
+            Performs type constraints on new entries.
+            </summary>
+            <param name="name">The entry name passed by reference so that it may be changed.</param>
+            <param name="key">The key <see cref="T:System.Type"/>.</param>
+            <param name="value">the value <see cref="T:System.Type"/>.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.Add(System.String,MonoCross.Navigation.IMXView)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="perspective">The view perspective key.</param>
+            <param name="view">The initialized view value.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.GetViewType(System.Type,System.String)">
+            <summary>
+            Gets the type of the view described by a view perspective.
+            </summary>
+            <param name="modelType">The view's model type.</param>
+            <param name="perspective">The view perspective.</param>
+            <returns>The type associated with the view perspective.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.GetView(System.Type,System.String)">
+            <summary>
+            Gets the view described by a view perspective.
+            </summary>
+            <param name="modelType">The view's model type.</param>
+            <param name="perspective">The view perspective.</param>
+            <returns>The view associated with the view perspective.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.GetOrCreateView(System.Type,System.String)">
+            <summary>
+            Gets the view or creates it if it has not been created.
+            </summary>
+            <param name="modelType">The view's model type.</param>
+            <param name="perspective">The view perspective.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Thrown when no view or view type is found in the view map</exception>
+        </member>
+        <member name="M:MonoCross.Navigation.MXViewMap.ContainsView(System.Type,System.String)">
+            <summary>
+            Determines whether a view has been registered for a model and perspective.
+            </summary>
+            <param name="modelType">The view's model type.</param>
+            <param name="perspective">The view perspective.</param>
+            <returns><c>true</c> if a view has been registered to the model type and perspective; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:MonoCross.Navigation.TypeLoader">
+            <summary>
+            A wrapper for initializing and managing objects by type.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type)">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type,System.Boolean)">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+            <param name="isSingleton"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type,System.Func{System.Object})">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type,System.Func{System.Object[],System.Object})">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type,System.Boolean,System.Func{System.Object})">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+            <param name="isSingleton"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Type,System.Boolean,System.Func{System.Object[],System.Object})">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instanceType">The <see cref="T:System.Type"/> to manage.</param>
+            <param name="isSingleton"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.#ctor(System.Object)">
+            <summary>
+            Initializes a new <see cref="T:MonoCross.Navigation.TypeLoader"/> instance.
+            </summary>
+            <param name="instance">The singleton object to manage.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.Load``1(System.Object[])">
+            <summary>
+            Returns the managed instance.
+            </summary>
+            <typeparam name="T">The type for casting the result.</typeparam>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+            <returns>The object instance cast to a <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.TypeLoader.Load(System.Object[])">
+            <summary>
+            Returns the managed instance.
+            </summary>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+            <returns>The object instance.</returns>
+        </member>
+        <member name="P:MonoCross.Navigation.TypeLoader.Instance">
+            <summary>
+            The initialized object of type <see cref="P:MonoCross.Navigation.TypeLoader.Type"/>, if it exists.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.TypeLoader.Type">
+            <summary>
+            The type managed by this instance.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXNavigationExtensions">
+            <summary>
+            Extension methods for <see cref="T:MonoCross.Navigation.IMXView"/> that add navigation.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigationExtensions.Navigate(MonoCross.Navigation.IMXView,System.String)">
+            <summary>
+            Initiates a navigation to the specified URL.
+            </summary>
+            <param name="view">The <see cref="T:MonoCross.Navigation.IMXView"/> that kicked off the navigation.</param>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to navigate to.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigationExtensions.Navigate(MonoCross.Navigation.IMXView,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initiates a navigation to the specified URL.
+            </summary>
+            <param name="view">The <see cref="T:MonoCross.Navigation.IMXView"/> that kicked off the navigation.</param>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to navigate to.</param>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="T:MonoCross.Navigation.MXContainer">
+            <summary>
+            Represents the platform-specific instance of the MonoCross container.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.MXContainer.CancelLoad">
+            <summary>
+            The cancel load.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.MXContainer.ThreadedLoad">
+            <summary>
+            Load containers on a separate thread.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.OnControllerLoadBegin(MonoCross.Navigation.IMXController)">
+            <summary>
+            Raises the controller load begin event.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.OnControllerLoadBegin(MonoCross.Navigation.IMXController,MonoCross.Navigation.IMXView)">
+            <summary>
+            Called when a controller is about to be loaded.
+            </summary>
+            <param name="controller">The controller to be loaded.</param>
+            <param name="fromView">The view that initiated the navigation that resulted in the controller being loaded.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.OnControllerLoadFailed(MonoCross.Navigation.IMXController,System.Exception)">
+            <summary>
+            Raises the controller load failed event.
+            </summary>
+            <param name="controller">The controller that failed to load.</param>
+            <param name="ex">The exception that caused the load to fail.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.OnSetDefinitions">
+            <summary>
+            Called when the IoC container is ready to be populated with its default entries.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.OnControllerLoadComplete(MonoCross.Navigation.IMXView,MonoCross.Navigation.IMXController,System.String,System.String)">
+            <summary>
+            Raises the load complete event after the Controller has completed loading its Model. The View may be populated,
+            and the derived class should check if it exists and do something with it if needed for the platform: either free it,
+            pop off the views in a stack above it or whatever makes sense to the platform.
+            </summary>
+            <param name="fromView">
+            The view that raised the navigation.
+            </param>
+            <param name="controller">
+            The newly loaded controller.
+            </param>
+            <param name="perspective">
+            The view perspective returned by the controller load.
+            </param>
+            <param name="navigatedUri">
+            A <see cref="T:System.String"/> that represents the uri used to navigate to the controller.
+            </param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.#ctor(MonoCross.Navigation.MXApplication)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.MXContainer"/> class.
+            </summary>
+            <param name="theApp">The application to contain.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.SetApp(MonoCross.Navigation.MXApplication)">
+            <summary>
+            Sets the MonoCross application in the container.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.MXContainer.GetSessionId">
+            <summary>
+            Gets the container session identifier
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.InitializeContainer(MonoCross.Navigation.MXContainer)">
+            <summary>
+            Initializes the <see cref="P:MonoCross.Navigation.MXContainer.Instance"/>.
+            </summary>
+            <param name="theContainer">The container instance.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="theContainer"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView``1(MonoCross.Navigation.IMXView)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="view">The initialized view value.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView``1(MonoCross.Navigation.IMXView,System.String)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="perspective">The view's perspective.</param>
+            <param name="view">The initialized view value.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView``1(System.Type)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="viewType">The view's type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView``1(System.Type,System.String)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="viewType">The view's type.</param>
+            <param name="perspective">The view's perspective.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView(System.Type,System.Type,System.String)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="modelType">The type of the view's model.</param>
+            <param name="viewType">The view's type.</param>
+            <param name="perspective">The view's perspective.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.AddView(System.Type,System.Type,System.String,MonoCross.Navigation.IMXView)">
+            <summary>
+            Adds the specified view to the view map.
+            </summary>
+            <param name="modelType">The type of the view's model.</param>
+            <param name="viewType">The view's type.</param>
+            <param name="perspective">The view perspective.</param>
+            <param name="view">The initialized view value.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Navigate(System.String)">
+            <summary>
+            Initiates a navigation to the specified URL.
+            </summary>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to navigate to.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Navigate(MonoCross.Navigation.IMXView,System.String)">
+            <summary>
+            Initiates a navigation to the specified URL.
+            </summary>
+            <param name="view">The <see cref="T:MonoCross.Navigation.IMXView"/> that kicked off the navigation.</param>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to navigate to.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Navigate(MonoCross.Navigation.IMXView,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initiates a navigation to the specified URL.
+            </summary>
+            <param name="view">The <see cref="T:MonoCross.Navigation.IMXView"/> that kicked off the navigation.</param>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to navigate to.</param>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.TryLoadController(MonoCross.Navigation.MXContainer,MonoCross.Navigation.IMXView,MonoCross.Navigation.IMXController,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Tries to execute the Load method of the specified controller using eventing.
+            </summary>
+            <param name="container">The container that loads the controller.</param>
+            <param name="fromView">The view that activated the navigation.</param>
+            <param name="controller">The controller to load.</param>
+            <param name="navigatedUri">A <see cref="T:System.String"/> that represents the uri used to navigate to the controller.</param>
+            <param name="parameters">The parameters to use with the controller's Load method.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Redirect(System.String)">
+            <summary>
+            Cancels loading of the current controller and navigates to the specified url.
+            </summary>
+            <param name="url">The url of the controller to navigate to.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.GetController(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Gets the controller.
+            </summary>
+            <param name="url">The URL pattern of the controller.</param>
+            <param name="parameters">The parameters to load into the controller.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">url</exception>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RenderViewFromPerspective(MonoCross.Navigation.IMXController,System.String)">
+            <summary>
+            Renders the view described by the perspective.
+            </summary>
+            <param name="controller">The controller requesting the view.</param>
+            <param name="perspective">The perspective describing the view.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RenderViewFromPerspective(System.Type,System.String,System.Object)">
+            <summary>
+            Renders the view described by the perspective.
+            </summary>
+            <param name="modelType">The type of the view's model.</param>
+            <param name="perspective">The perspective describing the view.</param>
+            <param name="model">The model for the view.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type)">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type,System.String)">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type,System.String,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register``1(System.Type,System.String,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type)">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.String)">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.String,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.String,System.Func{System.Object},System.Boolean)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+            <param name="nativeType">The type of the class to associate with the key type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+            <param name="singletonInstance"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.String,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Register(System.Type,System.Type,System.String,System.Func{System.Object[],System.Object},System.Boolean)">
+            <summary>
+            Registers the specified key type and class type for <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <param name="keyType">The key type to associate with the value type.</param>
+            <param name="namedInstance">An optional unique identifier for the key type.</param>
+            <param name="nativeType">The type of the class to associate with the key type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+            <param name="singletonInstance"><c>true</c> to create and cache the instance; otherwise <c>false</c> to create every time.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type)">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type,System.String)">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type,System.String,System.Func{System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Type,System.String,System.Func{System.Object[],System.Object})">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+            <param name="nativeType">The type of the class to associate with the abstract type.</param>
+            <param name="initialization">A method that initializes the object.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Object)">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="instance">The object to associate with the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.RegisterSingleton``1(System.Object,System.String)">
+            <summary>
+            Registers the specified abstract type and class type for a singleton <see cref="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])"/>.
+            </summary>
+            <typeparam name="T">The abstract type to associate with the class type.</typeparam>
+            <param name="instance">The object to associate with the abstract type.</param>
+            <param name="namedInstance">An optional unique identifier for the abstract type.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Resolve``1(System.Object[])">
+            <summary>
+            Resolves the specified abstract type as a concrete instance.
+            </summary>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Resolve``1(System.String,System.Object[])">
+            <summary>
+            Resolves the specified abstract type as a concrete instance.
+            </summary>
+            <param name="name">An optional unique identifier for the abstract type.</param>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXContainer.Resolve(System.Type,System.String,System.Object[])">
+            <summary>
+            Resolves the specified abstract type as a concrete instance.
+            </summary>
+            <param name="type">The abstract type to resolve.</param>
+            <param name="name">An optional unique identifier for the abstract type.</param>
+            <param name="parameters">An array of constructor parameters for initialization.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.LastNavigationDate">
+            <summary>
+            Gets the date and time of the last navigation that occurred.
+            </summary>
+            <value>The last navigation date.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.LastNavigationUrl">
+            <summary>
+            Gets or sets the URL of last navigation that occurred.
+            </summary>
+            <value>The last navigation URL.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.Views">
+            <summary>
+            Gets the view map.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.App">
+            <summary>
+            Gets the MonoCross application in the container.
+            </summary>
+            <value>The application as a <see cref="T:MonoCross.Navigation.MXApplication"/> instance.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.Instance">
+            <summary>
+            Gets or sets the application instance.
+            </summary>
+            <value>The application instance.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXContainer.Session">
+            <summary>
+            Gets the current session settings.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXContainer.SessionIdDelegate">
+            <summary>
+            A delegate for retrieving a container session identifier.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that uniquely identifies the container's session.</returns>
+        </member>
+        <member name="T:MonoCross.Navigation.ModelEventHandler">
+            <summary>
+            Delegate type for handling model events from the view
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.IMXView">
+            <summary>
+            Interface that marks a class as being a View
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXView.GetModel">
+            <summary>
+            Gets the model for the view.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXView.SetModel(System.Object)">
+            <summary>
+            Sets the model for the view.
+            </summary>
+            <param name="model">The model to associate with the view.</param>
+            <exception cref="T:System.InvalidCastException">Thrown if a model of the wrong type is set.</exception>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXView.Render">
+            <summary>
+            Displays the view according to the state of the model.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.IMXView.ModelType">
+            <summary>
+            The type of the model displayed by this view
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.IMXView`1">
+            <summary>
+            Interface that marks an <see cref="T:MonoCross.Navigation.IMXView"/> that displays models of type T.
+            </summary>
+            <typeparam name="T">The type of the Model.</typeparam>
+        </member>
+        <member name="P:MonoCross.Navigation.IMXView`1.Model">
+            <summary>
+            Gets or sets the model for the view.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXView`1">
+            <summary>
+            Base class for helping to implement Views that display models of type T. 
+            You can chooses to either inherit from this base class or re-implement the IMXView from scratch. 
+            Alternatively your view class can have a member that inherits from this class and is delegated to
+            for the IMXView implementation (Bridge Pattern).
+            </summary>
+            <typeparam name="T">The type of Model that the view displays</typeparam>
+        </member>
+        <member name="M:MonoCross.Navigation.MXView`1.GetModel">
+            <summary>
+            Gets the model for the view.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXView`1.SetModel(System.Object)">
+            <summary>
+            Sets the model for the view. An InvalidCastException may be thrown if a model of the wrong type is set.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXView`1.Render">
+            <summary>
+            This implementaion does nothing but fire the event.
+            If you plan to override this method you should call the base implementation after
+            you have done your Render().
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXView`1.ModelType">
+            <summary>
+            The type of the model displayed by this view
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXView`1.Model">
+            <summary>
+            Gets or sets the model for the view.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXApplication">
+            <summary>
+            Represents a cross-platform MonoCross application.  This class is abstract.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXApplication.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.MXApplication"/> class.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXApplication.OnAppLoad">
+            <summary>
+            Called when the application instance is loaded. This method is meant to be overridden in consuming applications 
+            for application-level initialization code.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXApplication.OnAppLoadComplete">
+            <summary>
+            Called by the container when the application load is complete. This method is meant to be overridden in consuming applications 
+            for application-level initialization code.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXApplication.NavigateOnLoad">
+            <summary>
+            Gets or sets the URI to navigate to once the application has loaded.
+            </summary>
+            <value>The URL as a <see cref="T:System.String"/> value.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXApplication.Title">
+            <summary>
+            Gets or sets the application's title.
+            </summary>
+            <value>The title as a <see cref="T:System.String"/> value.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXApplication.NavigationMap">
+            <summary>
+            Gets the navigation map that associates the application's controllers to their respective URIs.
+            </summary>
+            <value>The navigation map as a <see cref="T:MonoCross.Navigation.NavigationList"/> instance.</value>
+        </member>
+        <member name="T:MonoCross.Navigation.IMXController">
+            <summary>
+            Describes a navigation controller.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXController.GetModel">
+            <summary>
+            Gets the model for the controller.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXController.Load(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads this instance with the specified parameters.
+            </summary>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.IMXController.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads this instance with the specified parameters.
+            </summary>
+            <param name="uri">A <see cref="T:System.String"/> that represents the uri used to navigate to the controller.</param>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.IMXController.ModelType">
+            <summary>
+            The type of the model used by this controller.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXController`1">
+            <summary>
+            Represents the base implementation of a navigation controller. This class is abstract.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXController`1.GetModel">
+            <summary>
+            Gets the model for the controller.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXController`1.Load(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads this instance with the specified parameters.
+            </summary>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXController`1.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads this instance with the specified parameters.
+            </summary>
+            <param name="uri">A <see cref="T:System.String"/> that represents the uri used to navigate to the controller.</param>
+            <param name="parameters">A <see cref="T:System.Collections.Generic.Dictionary`2"/> representing any parameters such as submitted values.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.MXController`1.Model">
+            <summary>
+            Gets or sets the model for the controller.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXController`1.ModelType">
+            <summary>
+            Gets the type of the model used by this controller.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXNavigation">
+            <summary>
+            Represents a mapping of a URL pattern to a particular <see cref="T:MonoCross.Navigation.IMXController"/> instance
+            along with any default parameters needed for initialization of the controller.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.#ctor(System.String,MonoCross.Navigation.IMXController,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initializes an instance of the <see cref="T:MonoCross.Navigation.MXNavigation"/> class.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controller">The controller to add to the navigation list.</param>
+            <param name="parameters">Any default parameters to include when the controller is loaded.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.#ctor(System.String,System.Type,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initializes an instance of the <see cref="T:MonoCross.Navigation.MXNavigation"/> class.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controllerType">The tpye of the controller to add to the navigation list.</param>
+            <param name="parameters">Any default parameters to include when the controller is loaded.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.RegexPattern">
+            <summary>
+            Converts the <see cref="P:MonoCross.Navigation.MXNavigation.Pattern"/> into a regex string.
+            </summary>
+            <returns>A regex string that represents the pattern.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.ExtractParameters(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Parses the specified URL for parameters and adds them to the specified dictionary.
+            </summary>
+            <param name="url">The URL to parse for parameters.</param>
+            <param name="parameters">The <see cref="T:System.Collections.Generic.Dictionary`2"/> to add the parsed parameters to.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the segment count of the <paramref name="url"/> is not equal to the segment count of this instance.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="parameters"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.Equals(MonoCross.Navigation.MXNavigation)">
+            <summary>
+            Determines if the specified object is equal to this instance.
+            </summary>
+            <param name="mapping">The object to test for equality.</param>
+            <returns><c>true</c> if the object is equal to this instance; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.Equals(System.Object)">
+            <summary>
+            Determines if the specified object is equal to this instance.
+            </summary>
+            <param name="obj">The object to test for equality.</param>
+            <returns><c>true</c> if the object is equal to this instance; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.GetHashCode">
+            <summary>
+            Serves as a hash function for a MXNavigation. 
+            </summary>
+            <returns>
+            A hash code for the current MXNavigation.
+            </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.op_Equality(MonoCross.Navigation.MXNavigation,MonoCross.Navigation.MXNavigation)">
+            <summary>
+            Tests for equality between two <see cref="T:MonoCross.Navigation.MXNavigation"/> instances.
+            </summary>
+            <param name="a">The first MXNavigation to test.</param>
+            <param name="b">The second MXNavigation to test.</param>
+            <returns><c>true</c> if the MXNavigations are equal; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.op_Inequality(MonoCross.Navigation.MXNavigation,MonoCross.Navigation.MXNavigation)">
+            <summary>
+            Tests for inequality between two <see cref="T:MonoCross.Navigation.MXNavigation"/> instances.
+            </summary>
+            <param name="a">The first MXNavigation to test.</param>
+            <param name="b">The second MXNavigation to test.</param>
+            <returns><c>true</c> if the MXNavigations are not equal; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:MonoCross.Navigation.MXNavigation"/>.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Controller">
+            <summary>
+            Gets the controller for this instance.
+            </summary>
+            <value>The controller as an <see cref="T:MonoCross.Navigation.IMXController"/> instance.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Pattern">
+            <summary>
+            Gets or sets the navigation URL pattern for the controller.
+            </summary>
+            <value>The URL pattern as a <see cref="T:System.String"/> value.</value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Parameters">
+            <summary>
+            Gets or sets any parameters to add to the controller.
+            </summary>
+            <value>
+            The parameters as a <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.
+            </value>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Parts">
+            <summary>
+            Gets an array of <see cref="T:MonoCross.Navigation.MXNavigation.Segment"/>s that make up the URL pattern.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.MXNavigation.Segment">
+            <summary>
+            Represents a part of a URL.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.Segment.Split(System.String)">
+            <summary>
+            Splits the specified URL into segments and returns the result.
+            </summary>
+            <param name="url">The URL to split into segments.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.MXNavigation.Segment.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.MXNavigation.Segment"/> class.
+            </summary>
+            <param name="segment">The URL part to initialize with.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Segment.IsParameter">
+            <summary>
+            Gets whether this instance represents a parameter in the URL.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.MXNavigation.Segment.SegmentValue">
+            <summary>
+            Gets the value of this instance.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.NavigationList">
+            <summary>
+            Represents a collection of <see cref="T:MonoCross.Navigation.MXNavigation"/>s for controllers in an application.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.NavigationList"/> class.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.#ctor(System.Collections.Generic.IEnumerable{MonoCross.Navigation.MXNavigation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.NavigationList"/> class.
+            </summary>
+            <param name="source">The source to create this list from.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.OnAdded(MonoCross.Navigation.NavAddedEventArgs)">
+            <summary>
+            Raises the <see cref="E:MonoCross.Navigation.NavigationList.Added"/> event.
+            </summary>
+            <param name="e">The <see cref="T:MonoCross.Navigation.NavAddedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.GetControllerForPattern(System.String)">
+            <summary>
+            Gets the controller for the specified URI pattern.
+            </summary>
+            <param name="pattern">The URI pattern of the controller.</param>
+            <returns>The <see cref="T:MonoCross.Navigation.IMXController"/> in this instance that matches the pattern.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.GetPatternForModelType(System.Type)">
+            <summary>
+            Gets the pattern for the specified model type.
+            </summary>
+            <param name="modelType">Type of the model.</param>
+            <returns>A <see cref="T:System.String"/> pattern in this instance with a model that matches the type.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.GetControllerForModelType(System.Type)">
+            <summary>
+            Gets the controller for the specified model type.
+            </summary>
+            <param name="modelType">Type of the model.</param>
+            <returns>A <see cref="T:MonoCross.Navigation.IMXController"/> in this instance with a model that matches the type.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.Contains(System.String)">
+            <summary>
+            Determines whether this instance contains the specified pattern.
+            </summary>
+            <param name="pattern">The pattern.</param>
+            <returns><c>true</c> if the pattern is already defined in this instance; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.Add(System.String,MonoCross.Navigation.IMXController)">
+            <summary>
+            Adds the specified controller to the navigation list with the specified string pattern.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controller">The controller to add to the navigation list.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.Add(System.String,MonoCross.Navigation.IMXController,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds the specified controller to the navigation list with the specified string pattern.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controller">The controller to add to the navigation list.</param>
+            <param name="parameters">Any default parameters to include when the controller is loaded.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.Add(System.String,System.Type)">
+            <summary>
+            Adds the specified controller type to the navigation list with the specified string pattern.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controllerType">The type of the controller to add to the navigation list.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.Add(System.String,System.Type,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds the specified controller type to the navigation list with the specified string pattern.
+            </summary>
+            <param name="pattern">The navigation pattern to associate with the controller.</param>
+            <param name="controllerType">The type of the controller to add to the navigation list.</param>
+            <param name="parameters">Any default parameters to include when the controller is loaded.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.InternalAdd(MonoCross.Navigation.MXNavigation)">
+            <summary>
+            Adds the specified navigation to the list.
+            </summary>
+            <param name="item">The navigation entry to add.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.NavigationList.MatchUrl(System.String)">
+            <summary>
+            Returns a <see cref="T:MonoCross.Navigation.MXNavigation"/> from the Navigation List that matches the specified URL.
+            </summary>
+            <param name="url">A <see cref="T:System.String"/> representing the URL to match.</param>
+            <returns>A <see cref="T:MonoCross.Navigation.MXNavigation"/> that matches the URL.</returns>
+        </member>
+        <member name="E:MonoCross.Navigation.NavigationList.Added">
+            <summary>
+            Occurs when a controller is added.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.NavigationAddedDelegate">
+            <summary>
+            A delegate for <see cref="T:MonoCross.Navigation.NavigationList"/> events.
+            </summary>
+            <param name="sender">The <see cref="T:MonoCross.Navigation.NavigationList"/> source of the event.</param>
+            <param name="e">The <see cref="T:MonoCross.Navigation.NavAddedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:MonoCross.Navigation.NavAddedEventArgs">
+            <summary>
+            Contains data for events involving <see cref="T:MonoCross.Navigation.MXNavigation"/> sources.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.NavAddedEventArgs.#ctor(MonoCross.Navigation.MXNavigation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.NavAddedEventArgs"/> class.
+            </summary>
+            <param name="navItem">The added navigation item.</param>
+        </member>
+        <member name="F:MonoCross.Navigation.NavAddedEventArgs.NavigationItem">
+            <summary>
+            The navigation item source of the event.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.SerializableDictionary`2">
+            <summary>
+            Represents a generic collection of key/value pairs with serialization logic.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class with the default equality comparer.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class that contains elements
+            copied from the specified <see cref="T:System.Collections.Generic.IDictionary`2"/> and uses the default equality comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied to the new <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/>.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class that uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
+            </summary>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> to use when comparing keys.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class with the specified capacity.
+            </summary>
+            <param name="capacity">The initial number of elements that the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> can contain.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class that contains elements
+            copied from the specified <see cref="T:System.Collections.Generic.IDictionary`2"/> and uses the specified equality comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied to the new <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/>.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> to use when comparing keys.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> class with the specified capacity
+            and that uses the specified equality comparer.
+            </summary>
+            <param name="capacity">The initial number of elements that the <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> can contain.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> to use when comparing keys.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Adds an item to the collection.
+            </summary>
+            <param name="item">The item to add to the collection.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Clear">
+            <summary>
+            Removes all items from the collection.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Determines whether the collection contains a specific value.
+            </summary>
+            <param name="item">The item to locate in the collection.</param>
+            <returns><c>true</c> if the item is found in the collection; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an <see cref="T:System.Array"/>, starting at a particular index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the elements copied from the collection.</param>
+            <param name="arrayIndex">The index in the array at which copying begins.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Removes the first occurrence of a specific item from the collection.
+            </summary>
+            <param name="item">The item to remove.</param>
+            <returns><c>true</c> if the item was successfully removed from the collection; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the elements of the collection to an <see cref="T:System.Array"/>, starting at a particular index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the elements copied from the collection.</param>
+            <param name="index">The index in the array at which copying begins.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Add(`0,`1)">
+            <summary>
+            Adds an element with the provided key and value to the dictionary.
+            </summary>
+            <param name="key">The object to use as the key of the element to add.</param>
+            <param name="value">The object to use as the value of the element to add.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.ContainsKey(`0)">
+            <summary>
+            Determines whether the dictionary contains an element with the specified key.
+            </summary>
+            <param name="key">The key to locate in the dictionary.</param>
+            <returns><c>true</c> if the dictionary contains an element with the key; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Remove(`0)">
+            <summary>
+            Removes the element with the specified key from the dictionary.
+            </summary>
+            <param name="key">The key of the element to remove.</param>
+            <returns><c>true</c> if the element was successfully removed from the dictionary; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">When the method returns, the value of the specified key.</param>
+            <returns><c>true</c> if the dictionary contains an element with the key; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Add(System.Object,System.Object)">
+            <summary>
+            Adds an element with the provided key and value to the dictionary.
+            </summary>
+            <param name="key">The object to use as the key of the element to add.</param>
+            <param name="value">The object to use as the value of the element to add.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Contains(System.Object)">
+            <summary>
+            Determines whether the dictionary contains an element with the specified key.
+            </summary>
+            <param name="key">The key to locate in the dictionary.</param>
+            <returns><c>true</c> if the dictionary contains an element with the key; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.Remove(System.Object)">
+            <summary>
+            Removes the element with the specified key from the dictionary.
+            </summary>
+            <param name="key">The key of the element to remove.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.GetSchema">
+            <summary>
+            This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"/> to the class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Xml.Schema.XmlSchema"/> that describes the XML representation of the object that is produced by the <see cref="M:System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)"/> method and consumed by the <see cref="M:System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)"/> method.
+            </returns>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Generates a dictionary element from the XML that is at the current position of the specified <see cref="T:System.Xml.XmlReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> stream from which the element is deserialized.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Converts an element into its XML representation and writes it to the specified <see cref="T:System.Xml.XmlWriter"/>.
+            </summary>
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"/> stream to which the object is serialized.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.op_Implicit(MonoCross.Navigation.SerializableDictionary{`0,`1})~System.Collections.Generic.Dictionary{`0,`1}">
+            <summary>
+            Implicitly converts a <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> instance to a <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.
+            </summary>
+            <param name="d">The <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> instance to convert.</param>
+        </member>
+        <member name="M:MonoCross.Navigation.SerializableDictionary`2.op_Implicit(System.Collections.Generic.Dictionary{`0,`1})~MonoCross.Navigation.SerializableDictionary{`0,`1}">
+            <summary>
+            Implicitly converts a <see cref="T:System.Collections.Generic.Dictionary`2"/> instance to a <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> instance.
+            </summary>
+            <param name="d">The <see cref="T:System.Collections.Generic.Dictionary`2"/> instance to convert.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.IsSynchronized">
+            <summary>
+            Gets whether this instance is synchronized across threads.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.SyncRoot">
+            <summary>
+            Gets an object that can be used for synchronization.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.Count">
+            <summary>
+            Gets the number of elements contained within the collection.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the collection is read-only.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.Item(`0)">
+            <summary>
+            Gets or sets the element with the specified key.
+            </summary>
+            <param name="key">The key of the element to get or set.</param>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.Keys">
+            <summary>
+            Gets a collection containing the keys of the dictionary.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.Values">
+            <summary>
+            Gets a collection containing the values of the dictionary.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SerializableDictionary`2.IsFixedSize">
+            <summary>
+            Gets whether this instance is of a fixed size and cannot be resized to fit more elements.
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.ISession">
+            <summary>
+            Defines an application's session settings.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.ISession.Abandon">
+            <summary>
+            Removes or resets all session settings.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.ISession.SafeKeys">
+            <summary>
+            Gets a collection of entries to persist through a <see cref="M:System.Collections.Generic.ICollection`1.Clear"/>
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.SessionDictionary">
+            <summary>
+            Represents a <see cref="T:MonoCross.Navigation.SerializableDictionary`2"/> that stores an application's session settings.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.SessionDictionary.ContainerKey">
+            <summary>
+            The key used to keep the <see cref="T:MonoCross.Navigation.MXContainer"/> instance in session.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.SessionDictionary.NavKey">
+            <summary>
+            The key used to keep the <see cref="T:MonoCross.Navigation.NavigationList"/> instance in session.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.SessionDictionary.ViewsKey">
+            <summary>
+            The key used to keep the <see cref="T:MonoCross.Navigation.MXViewMap"/> instance in session.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SessionDictionary.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MonoCross.Navigation.SessionDictionary"/> class.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SessionDictionary.Clear">
+            <summary>
+            Removes all keys and values from the <see cref="T:MonoCross.Navigation.SessionDictionary"/> with the exception of the application and navigation map objects.
+            </summary>
+        </member>
+        <member name="M:MonoCross.Navigation.SessionDictionary.Abandon">
+            <summary>
+            Removes or resets all session settings.
+            </summary>
+        </member>
+        <member name="P:MonoCross.Navigation.SessionDictionary.SafeKeys">
+            <summary>
+            Gets a collection of entries to persist through a <see cref="M:MonoCross.Navigation.SessionDictionary.Clear"/>
+            </summary>
+        </member>
+        <member name="T:MonoCross.Navigation.ViewPerspective">
+            <summary>
+            Static class containing common perspectives returned by a <see cref="T:MonoCross.Navigation.IMXController"/>
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.ViewPerspective.Default">
+            <summary>
+            The default ViewPerspective for a model when none is specified.
+            </summary>
+            <remarks>This perspective is usually associated with lists or dashboards that describe collections of a model.</remarks>
+        </member>
+        <member name="F:MonoCross.Navigation.ViewPerspective.Read">
+            <summary>
+            The ViewPerspective for reading from a model.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.ViewPerspective.Create">
+            <summary>
+            The ViewPerspective for creating a model.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.ViewPerspective.Update">
+            <summary>
+            The ViewPerspective for modifying a model.
+            </summary>
+        </member>
+        <member name="F:MonoCross.Navigation.ViewPerspective.Delete">
+            <summary>
+            The ViewPerspective for deleting a model.
+            </summary>
+        </member>
+    </members>
+</doc>
