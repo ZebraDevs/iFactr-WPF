@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoCross", "iFactr.UI\Mono
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iFactr.UI.Debug", "iFactr.UI\iFactr.UI\iFactr.UI.Debug.csproj", "{B6D01164-1AA8-4652-8C63-7DA813CF6163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoCross.Net.Debug", "iFactr.UI\MonoCross\Utilities\MonoCross.Net.Debug.csproj", "{3B519F92-1F02-4EB5-BA88-D0FC2999981F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoCross.Utilities.Net.Debug", "iFactr.UI\MonoCross\Utilities\MonoCross.Utilities.Net.Debug.csproj", "{3B519F92-1F02-4EB5-BA88-D0FC2999981F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -235,9 +235,9 @@
       <Project>{4618ccfc-5895-4c44-ad25-8bf312a96b86}</Project>
       <Name>MonoCross</Name>
     </ProjectReference>
-    <ProjectReference Include="..\iFactr.UI\MonoCross\Utilities\MonoCross.Net.Debug.csproj">
+    <ProjectReference Include="..\iFactr.UI\MonoCross\Utilities\MonoCross.Utilities.Net.Debug.csproj">
       <Project>{3b519f92-1f02-4eb5-ba88-d0fc2999981f}</Project>
-      <Name>MonoCross.Net.Debug</Name>
+      <Name>MonoCross.Utilities.Net.Debug</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
