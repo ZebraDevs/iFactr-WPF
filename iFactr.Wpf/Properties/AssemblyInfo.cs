@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("iFactr.Wpf")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The iFactr WPF UI bindings library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zebra Technologies Corporation")]
 [assembly: AssemblyProduct("iFactr.Wpf")]
@@ -34,3 +34,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("10.0.0.42")]
+[assembly: AssemblyInformationalVersion("Branch - master (Hash: Working Tree)")]
