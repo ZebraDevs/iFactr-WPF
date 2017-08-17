@@ -16,8 +16,10 @@ echo ** MSBuild Path: %MSBUILDCUSTOMPATH%
 echo ** Building all sources
 
 :: Call MSBuild
-echo ** "%MSBUILDCUSTOMPATH%" build.xml /verbosity:normal /p:Configuration=Release %*
-%MSBUILDCUSTOMPATH% build.xml /verbosity:normal /p:Configuration=Release %*
+echo ** "%MSBUILDCUSTOMPATH%" build.xml /verbosity:normal /p:Configuration=Release;Ext=.Wpf %*
+%MSBUILDCUSTOMPATH% build.xml /verbosity:normal /p:Configuration=Release;Ext=.Wpf %*
+echo ** "%MSBUILDCUSTOMPATH%" build.xml /verbosity:normal /p:Configuration=Release;Ext=.Console %*
+%MSBUILDCUSTOMPATH% build.xml /verbosity:normal /p:Configuration=Release;Ext=.Console %*
 set BUILDERRORLEVEL=%ERRORLEVEL%
 echo.
 

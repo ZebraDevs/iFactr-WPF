@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Run">
     <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
     <PropertyGroup>
-        <Framework>./iFactr.Wpf</Framework>
+        <Framework>./iFactr$(Ext)</Framework>
     </PropertyGroup>
 
     <Target Name="Run">
@@ -46,20 +46,20 @@
     </Target>
 
     <Target Name="Compile" DependsOnTargets="PreBuild">
-        <MSBuild Projects="$(Framework)/iFactr.Wpf.csproj" />
+        <MSBuild Projects="$(Framework)/iFactr$(Ext).csproj" />
         <GitClient Command="checkout" Arguments="-- &quot;$(Framework)/Properties/AssemblyInfo.cs&quot;"/>
     </Target>
 
     <Target Name="CopyToRoot">
         <ItemGroup>
-            <iFactrLib Include="$(Framework)/bin/$(Configuration)/iFactr.Wpf.*" />
+            <iFactrLib Include="$(Framework)/bin/$(Configuration)/iFactr$(Ext).*" />
         </ItemGroup>
         <Copy SourceFiles="@(iFactrLib)" DestinationFolder="Distribution" />
     </Target>
 
     <Target Name="Verify" Condition="$(SignAssembly) == true">
         <ItemGroup>
-            <iFactrVerify Include="Distribution/iFactr.Wpf.dll" />
+            <iFactrVerify Include="Distribution/iFactr$(Ext).dll" />
         </ItemGroup>
         <Exec Command='"$(SDK40ToolsPath)sn" -q -v %(iFactrVerify.Identity)' ContinueOnError="true" ConsoleToMSBuild="true">
             <Output TaskParameter="ConsoleOutput" ItemName="Verify" />
@@ -68,16 +68,16 @@
     </Target>
 
     <Target Name="UpdateDepVersions">
-      <XmlRead XPath="//dependency/@id" XmlFileName="$(Framework)/iFactr.Wpf.nuspec">
+      <XmlRead XPath="//dependency/@id" XmlFileName="$(Framework)/iFactr$(Ext).nuspec">
         <Output TaskParameter="Value" PropertyName="_Deps" />
       </XmlRead>
-      <XmlRead XPath="//dependency/@version" XmlFileName="$(Framework)/iFactr.Wpf.nuspec">
+      <XmlRead XPath="//dependency/@version" XmlFileName="$(Framework)/iFactr$(Ext).nuspec">
         <Output TaskParameter="Value" PropertyName="_Formats" />
       </XmlRead>
       <ItemGroup>
         <__DepPaths Include="$(_Deps.Split(';'))"/>
       </ItemGroup>
-      <XmlRead XPath="//*[name()='Reference'][@Include='%(__DepPaths.Identity)']/*[name()='HintPath']" XmlFileName="$(Framework)/iFactr.Wpf.csproj">
+      <XmlRead XPath="//*[name()='Reference'][@Include='%(__DepPaths.Identity)']/*[name()='HintPath']" XmlFileName="$(Framework)/iFactr$(Ext).csproj">
         <Output TaskParameter="Value" ItemName="_DepPaths" />
       </XmlRead>
       <ItemGroup>
@@ -88,7 +88,7 @@
         <Output TaskParameter="Value" ItemName="Dependencies" />
       </GetFileVersion>
       <XmlUpdate XPath="//dependency[@id=&quot;%(Dependencies.Name)&quot;]/@version"
-            XmlFileName="$(Framework)/iFactr.Wpf.nuspec"
+            XmlFileName="$(Framework)/iFactr$(Ext).nuspec"
             Value="%(Version)"/>
     </Target>
 
@@ -101,8 +101,8 @@
         <In>@(ItemsFromFile)</In>
         <Version>$([System.Text.RegularExpressions.Regex]::Match($(In), $(Pattern)))</Version>
       </PropertyGroup>
-      <Exec WorkingDirectory="$(Framework)" Command="nuget pack -Symbols -Version $(Version.Remove(0, 28))$(BuildRev) iFactr.Wpf.csproj -Prop Configuration=Release" />
-      <GitClient Command="checkout" Arguments="-- &quot;$(Framework)/iFactr.Wpf.nuspec&quot;"/>
+      <Exec WorkingDirectory="$(Framework)" Command="nuget pack -Symbols -Version $(Version.Remove(0, 28))$(BuildRev) iFactr$(Ext).csproj -Prop Configuration=Release" />
+      <GitClient Command="checkout" Arguments="-- &quot;$(Framework)/iFactr$(Ext).nuspec&quot;"/>
     </Target>
 
   <UsingTask TaskName="GetFileVersion" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
