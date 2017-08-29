@@ -14,7 +14,7 @@
     <summary>Cross-platform UI interfaces</summary>
     <releaseNotes>4.0 Release for iFactr Open Source with MIT license.</releaseNotes>
     <copyright>2010-2017 Zebra Technologies Corp.</copyright>
-    <tags>MonoCross iFactr dotNET WPF</tags>
+    <tags>MonoCross iFactr dotNET WPF UI</tags>
     <dependencies>
       <dependency id="MonoCross.Utilities.NET" version="4.0.0.42" />
       <dependency id="iFactr.UI" version="4.0.0.42" />
