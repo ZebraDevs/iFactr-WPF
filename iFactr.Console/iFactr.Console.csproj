@@ -57,8 +57,8 @@
     <Reference Include="MonoCross">
       <HintPath>..\iFactr.UI\MonoCross\Distribution\MonoCross.dll</HintPath>
     </Reference>
-    <Reference Include="MonoCross.Utilities.Net">
-      <HintPath>..\iFactr.UI\MonoCross\Distribution\MonoCross.Utilities.Net.dll</HintPath>
+    <Reference Include="MonoCross.Utilities.NET">
+      <HintPath>..\iFactr.UI\MonoCross\Distribution\MonoCross.Utilities.NET.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>iFactr.Wpf</id>
+    <id>iFactr.Console</id>
     <version>$version$</version>
-    <title>iFactr WPF Framework</title>
+    <title>iFactr Console Framework</title>
     <authors>Zebra</authors>
     <owners>Zebra Technologies Corp.</owners>
     <licenseUrl>https://raw.githubusercontent.com/Zebra/iFactr-WPF/master/LICENSE</licenseUrl>
@@ -11,10 +11,10 @@
     <iconUrl>https://raw.githubusercontent.com/Zebra/iFactr-UI/master/iFactr.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A cross-platform mobile framework using C# .NET and Mono to create shared-code UI on iOS, Android, Windows and Webkit.</description>
-    <summary>Cross-platform UI interfaces</summary>
+    <summary>Cross-platform UI Bindings for Command Line</summary>
     <releaseNotes>4.0 Release for iFactr Open Source with MIT license.</releaseNotes>
     <copyright>2010-2017 Zebra Technologies Corp.</copyright>
-    <tags>MonoCross iFactr dotNET-CLI</tags>
+    <tags>MonoCross iFactr dotNET-CLI UI</tags>
     <dependencies>
       <dependency id="MonoCross.Utilities.NET" version="4.0.0.42" />
       <dependency id="iFactr.UI" version="4.0.0.42" />
