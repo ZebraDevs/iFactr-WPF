@@ -11,9 +11,9 @@ using iFactr.UI.Controls;
 
 namespace iFactr.Wpf
 {
-    public partial class DatePicker : System.Windows.Controls.DatePicker, IDatePicker, INotifyPropertyChanged
+    public partial class DatePickerImpl : System.Windows.Controls.DatePicker, IDatePicker, INotifyPropertyChanged
     {
-        public static readonly DependencyProperty DateFormatProperty = DependencyProperty.Register("DateFormat", typeof(string), typeof(DatePicker), new PropertyMetadata(default(string)));
+        public static readonly DependencyProperty DateFormatProperty = DependencyProperty.Register("DateFormat", typeof(string), typeof(DatePickerImpl), new PropertyMetadata(default(string)));
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -444,7 +444,7 @@ namespace iFactr.Wpf
 
         private DateTime? currentValue;
 
-        public DatePicker()
+        public DatePickerImpl()
         {
             InitializeComponent();
 

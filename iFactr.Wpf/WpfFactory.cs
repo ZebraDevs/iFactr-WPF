@@ -177,7 +177,7 @@ namespace iFactr.Wpf
             Register<IRichContentCell>(typeof(RichContentCell));
             //Register<IGrid>(typeof(Grid));
             Register<IButton>(typeof(Button));
-            Register<IDatePicker>(typeof(DatePicker));
+            Register<IDatePicker>(typeof(DatePickerImpl));
             Register<IImage>(typeof(Image));
             Register<ILabel>(typeof(Label));
             Register<IPasswordBox>(typeof(PasswordBox));
