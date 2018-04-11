@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zebra Technologies Corporation")]
 [assembly: AssemblyProduct("iFactr.Wpf")]
-[assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,4 +33,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("10.0.0.42")]
-[assembly: AssemblyInformationalVersion("Branch - master (Hash: Working Tree)")]
+[assembly: AssemblyFileVersion("10.0.0.42")]
+[assembly: AssemblyInformationalVersion("10.0.0.42-master.WorkingTree")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
