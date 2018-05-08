@@ -2,6 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <BuildVersion Condition=" '$(BuildVersion)' == '' ">10.1.0</BuildVersion>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -149,7 +150,7 @@
       <Output TaskParameter="ConsoleOutput" PropertyName="CommitHash" />
     </Exec>
     <PropertyGroup>
-      <AssemblyVersion>10.0.0.$(BuildRev)</AssemblyVersion>
+      <AssemblyVersion>$(BuildVersion).$(BuildRev)</AssemblyVersion>
       <FileVersion>$(AssemblyVersion)</FileVersion>
       <Version>$(AssemblyVersion)-$(Branch).$(CommitHash)</Version>
       <Copyright>Copyright ©  $([System.DateTime]::Now.ToString(`yyyy`))</Copyright>
